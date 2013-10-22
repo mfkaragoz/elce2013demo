@@ -1,0 +1,22 @@
+Total Cameras: {{devices.length}}
+<ul><li ng-repeat="device in devices">
+Device Id: {{device.device_id}} 
+    <ul>
+    <li>IP: {{device.ip}}</li>
+    <li>Time: {{device.time | date:'yyyy-MM-dd HH:mm:ss'}}</li>
+    <li>Status: {{device.status}}</li>
+    <li>Location: {{device.location.lat}}, {{device.location.lon}}</li>
+    <li>Md_Mode: {{device.md_mode}}</li>
+    <li>Vid_Src: {{device.vid_src}}</li>
+    <li><input ng-click="setMdMode(device, 0)" type="button" value="OFF"> <input ng-click="setMdMode(device, 1)" type="button" value="MD-1"> <input ng-click="setMdMode(device, 2)" type="button" value="MD-2"></li>
+    <li><input ng-click="setVidSrc(device, 1)" type="button" value="DayTV"> <input ng-click="setVidSrc(device, 2)" type="button" value="Thermal"></li>
+    </ul>
+</li></ul>
+
+<br><br>
+Alarms: (<input ng-click="alarms=[]" type="button" value="Clear All">)
+<ul>
+<li ng-repeat="alarm in alarms | orderBy:'time':true"><b>Device Id:</b> {{alarm.camera_id}} <b>Md_Mode:</b> {{alarm.type}} <b>Time:</b> {{alarm.time | date:'yyyy-MM-dd HH:mm:ss'}}</li>
+</ul>
+
+
